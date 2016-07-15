@@ -1,5 +1,12 @@
 #-*- coding: utf-8 -*-
 
+# Matrix Factorization
+# 코드 출처: http://www.quuxlabs.com/blog/2010/09/matrix-factorization-a-simple-tutorial-and-implementation-in-python/
+# 위 사이트 코드를 보고 라인별 의미를 주석으로 추가
+
+
+
+
 import numpy
 
 
