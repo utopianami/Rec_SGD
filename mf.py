@@ -33,9 +33,10 @@ def matrix_factorization(R, P, Q, K, steps=5000, alpha=0.0002, beta=0.02):
 
                     #업데이트
                         #alpha * (2 * eij * Q[k][j] - beta * P[i][k]): 미분식 (P[i][k]가 변할 때, eij의 변화량)
+                            #alpha: gradient descent의 방향을 어느정도 이동할지 정하지는 변수
                         #beta * P[i][k]: overfitting을 막기 위한 Regularization 식
-                        #alpha: gradient descent의 방향을 어느정도 이동할지 정하지는 변수
-                        #beta: Regularization할 때 user feature vector와 item feature vector를 고려하는 정도를 결정하는 변수
+                            #P[i][k]의 값을 error로 간주하여, 큰 값이 들어가지 않게 막음 -> 큰 값이 들어가면 error가 커짐
+                            #beta: Regularization할 때 P[i][k]를 얼마나 error로 간주할 것인지 결정하는 변수 
                     for k in xrange(K):
                         P[i][k] = P[i][k] + alpha * (2 * eij * Q[k][j] - beta * P[i][k])
                         Q[k][j] = Q[k][j] + alpha * (2 * eij * P[i][k] - beta * Q[k][j])
